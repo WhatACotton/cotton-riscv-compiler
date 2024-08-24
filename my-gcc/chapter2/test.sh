@@ -2,8 +2,8 @@
 assert() {
   expected="$1"
   input="$2"
-  echo "compiling chapter1.c"
-  gcc -o tmp-compiler "chapter1.c" 
+  echo "compiling chapter2.c"
+  gcc -o tmp-compiler "chapter2.c" 
   ./tmp-compiler $expected > tmp.s
   riscv64-unknown-elf-gcc -o tmp tmp.s
   qemu-riscv64 tmp
@@ -18,10 +18,8 @@ assert() {
 }
 
 assert 0 0
-assert 42 42
+assert 2 '1+1'
+assert 21 '5+20-4'
+assert 40 '12+34-5-1'
 
 echo OK
-
-rm tmp-compiler tmp.s tmp
-
-echo "All tests passed"
