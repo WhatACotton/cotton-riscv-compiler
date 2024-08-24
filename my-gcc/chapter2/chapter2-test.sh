@@ -20,6 +20,10 @@ assert() {
 assert 0 0
 assert 2 '1+1'
 assert 21 '5+20-4'
-assert 40 '12+34-5-1 '
+assert 40 '12+34-5-1'
 
 echo OK
+
+rm tmp-compiler tmp.s tmp
+
+echo "All tests passed"
